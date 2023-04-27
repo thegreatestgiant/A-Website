@@ -10,7 +10,7 @@ COPY ../port /usr/bin/port
 COPY ../new-site /usr/bin/new-site
 RUN chmod +x /usr/bin/port /usr/bin/new-site
 
-RUN curl -fOL https://github.com/coder/code-server/releases/download/v4.11.0/code-server_4.11.0_amd64.deb
-RUN dpkg -i code-server_4.11.0_amd64.deb
+RUN curl -fOL https://github.com/coder/code-server/releases/download/v4.11.0/code-server_4.11.0_arm64.deb
+RUN dpkg -i code-server_4.11.0_arm64.deb
 
 CMD ["sh", "-c", "service php7.4-fpm start; nginx -g 'daemon off;' & code-server --auth none --host 0.0.0.0"]
