@@ -21,6 +21,6 @@ RUN ARCH=$(if [ $(uname -m) = "aarch64" ]; then echo "arm64"; elif [ $(uname -m)
     curl -fOL https://github.com/coder/code-server/releases/download/v4.12.0/code-server_4.12.0_${ARCH}.deb
 RUN dpkg -i code-server_4.12.0*.deb
 RUN rm code-server*
-COPY code-server /root/.local/code-server
+COPY code-server /root/.local/share/code-server
 
 CMD ["sh", "-c", "service php8.1-fpm start; nginx -g 'daemon off;' & code-server --auth none --host 0.0.0.0"]
