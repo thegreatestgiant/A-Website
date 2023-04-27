@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Directory containing the files to search
+DIRECTORY="/settings/sites-available/"
+
+# Array to store the numbers
+numbers=()
+
+# Loop through all files in the directory
+for file in "$DIRECTORY"/*; do
+    # Get the number on the second line of the file
+    number=$(sed -n '2p' "$file")
+    # Remove all non-numeric characters from the number
+    number="${number//[!0-9]/}"
+    # Add the number to the array if it's not empty
+    if [[ ! -z "$number" ]]; then
+        numbers+=("$number")
+    fi
+done
+
+# Find the highest number in the array
+highest_number=0
+for number in "${numbers[@]}"; do
+    if ((number > highest_number)); then
+        highest_number="$number"
+    fi
+done
+
+# Print the highest number
+echo $highest_number
