@@ -17,7 +17,7 @@ COPY port /usr/bin/port
 COPY new-site /usr/bin/new-site
 RUN chmod +x /usr/bin/port /usr/bin/new-site
 
-RUN ARCH=$(if [ $(uname -m) = "aarch64" ]; then echo "arm64"; else echo $(uname -m); fi) && \
+RUN ARCH=$(if [ $(uname -m) = "aarch64" ]; then echo "arm64"; elif [ $(uname -m) = "x86_64" ]; then echo "amd64"; else echo $(uname -m); fi) && \
     curl -fOL https://github.com/coder/code-server/releases/download/v4.12.0/code-server_4.12.0_${ARCH}.deb
 RUN dpkg -i code-server_4.12.0*.deb
 RUN rm code-server*
