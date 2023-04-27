@@ -1,0 +1,55 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Usage: new-site [domain]"
+  echo "Options:"
+  echo "  -h    Show this help message"
+  exit 2
+fi
+
+if [ "$1" = "-h" ]; then
+  echo "Usage: new-site [domain]"
+  echo "Options:"
+  echo "  -h    Show this help message"
+  exit 3
+fi
+
+PORT=$(($(/usr/bin/port)+1))
+config_file="/settings/sites-available/$1"
+
+if ! touch "$config_file"; then
+  echo "Failed to create config file"
+  exit 4
+fi
+
+cat << EOF > "$config_file"
+server {
+        listen $PORT;
+        root /sites/$1;
+        index index.php index.html index.htm;
+        server_name $1;
+        location / {
+                try_files \$uri \$uri/ =404;
+        }
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+        }
+}
+EOF
+
+if ! ln -s "$config_file" /etc/nginx/sites-enabled; then
+  echo "Failed to enable config file"
+  exit 5
+fi
+
+if [ ! -d "/sites/$1" ];then
+    mkdir /sites/$1
+fi
+touch /sites/$1/index.html
+
+service nginx reload
+service php8.1-fpm reload
+nginx -t
+
+echo "Done!"
