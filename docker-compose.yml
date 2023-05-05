@@ -1,0 +1,22 @@
+services:
+  website:
+    restart: always
+    container_name: a-website
+    ports:
+     - 8080:8080
+     - 600:600
+    volumes:
+      - web-code:/root/.local/share/code-server
+      - web-sites:/sites
+      - web-st-av:/etc/nginx/sites-available
+      - web-st-en:/etc/nginx/sites-enabled
+    image: thegreatestgiant/website:arm
+volumes:
+  web-code:
+  web-sites:
+  web-st-av:
+  web-st-en:
+networks:
+  default:
+    external: true
+    name: all
