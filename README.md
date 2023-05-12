@@ -12,4 +12,3 @@ docker build -t website .
 ```sh
 docker run -itd -p 600:600 -p 8080:8080 --name website website
 ```
-Yes sir
