@@ -1,4 +1,8 @@
 {
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Default Dark+"
+    "workbench.colorTheme": "Xcode Default Dark Customized Version",
+    "workbench.iconTheme": "vscode-icons",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
