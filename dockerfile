@@ -5,7 +5,7 @@ RUN apt-get update -y && \
     tzdata && \
     ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && \
     dpkg-reconfigure --frontend noninteractive tzdata && \
-    apt-get install -y nginx zip unzip curl nano php-fpm && \
+    apt-get install -y nginx ssh zip unzip curl nano php-fpm && \
     rm -rf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 RUN mkdir -p /sites/default && touch /sites/default/index.html
