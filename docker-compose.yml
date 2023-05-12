@@ -16,7 +16,3 @@ volumes:
   web-sites:
   web-st-av:
   web-st-en:
-networks:
-  default:
-    external: true
-    name: all
