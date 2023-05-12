@@ -1,0 +1,28 @@
+2023-05-12 11:59:05.094 [info] 
+
+
+
+
+2023-05-12 11:59:05.095 [info] Extension host agent started.
+2023-05-12 11:59:05.124 [info] Started initializing default profile extensions in extensions installation folder. file:///root/.local/share/code-server/extensions
+2023-05-12 11:59:05.182 [info] Completed initializing default profile extensions in extensions installation folder. file:///root/.local/share/code-server/extensions
+2023-05-12 11:59:11.649 [info] [74.101.52.82][fe957824][ManagementConnection] New connection established.
+2023-05-12 11:59:12.076 [warning] Using the in-memory credential store as the operating system's credential store could not be accessed. Please see https://aka.ms/vscode-server-keyring on how to set this up. Details: libsecret-1.so.0: cannot open shared object file: No such file or directory
+2023-05-12 11:59:13.521 [info] [74.101.52.82][5be0d564][ExtensionHostConnection] New connection established.
+2023-05-12 11:59:13.646 [info] [74.101.52.82][5be0d564][ExtensionHostConnection] <73> Launched Extension Host Process.
+2023-05-12 11:59:30.736 [info] Getting Manifest... mateocerquetella.xcode-12-theme
+2023-05-12 11:59:31.204 [info] Installing extension: mateocerquetella.xcode-12-theme
+2023-05-12 11:59:32.586 [info] Extension signature verification is not done: mateocerquetella.xcode-12-theme
+2023-05-12 11:59:32.617 [info] Extracted extension to /root/.local/share/code-server/extensions/.2f84c777-86f7-4b1a-a89f-8ab9dd3cbc4a: mateocerquetella.xcode-12-theme
+2023-05-12 11:59:32.624 [info] Renamed to /root/.local/share/code-server/extensions/mateocerquetella.xcode-12-theme-4.1.0-universal
+2023-05-12 11:59:32.626 [info] Extracting extension completed. mateocerquetella.xcode-12-theme
+2023-05-12 11:59:32.633 [info] Extension installed successfully: mateocerquetella.xcode-12-theme
+2023-05-12 11:59:46.119 [info] Getting Manifest... vscode-icons-team.vscode-icons
+2023-05-12 11:59:46.448 [info] Installing extension: vscode-icons-team.vscode-icons
+2023-05-12 11:59:48.304 [info] Extension signature verification is not done: vscode-icons-team.vscode-icons
+2023-05-12 11:59:49.806 [info] Extracted extension to /root/.local/share/code-server/extensions/.97f48a62-d18b-444b-9a19-eb2b84b5f3da: vscode-icons-team.vscode-icons
+2023-05-12 11:59:49.812 [info] Renamed to /root/.local/share/code-server/extensions/vscode-icons-team.vscode-icons-12.4.0-universal
+2023-05-12 11:59:49.817 [info] Extracting extension completed. vscode-icons-team.vscode-icons
+2023-05-12 11:59:49.825 [info] Extension installed successfully: vscode-icons-team.vscode-icons
+2023-05-12 12:16:30.968 [info] [108.27.216.22][5be0d564][ExtensionHostConnection] The client has reconnected.
+2023-05-12 12:16:32.960 [info] [108.27.216.22][fe957824][ManagementConnection] The client has reconnected.

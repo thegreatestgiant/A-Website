@@ -1,0 +1,9 @@
+{
+  "query": {
+    "folder": "/sites"
+  },
+  "update": {
+    "checked": 1683907152649,
+    "version": "4.12.0"
+  }
+}

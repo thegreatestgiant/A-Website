@@ -1,0 +1,46 @@
+2023-05-12 12:24:43.876 [info] Extension host with pid 426 started
+2023-05-12 12:24:44.066 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2023-05-12 12:24:44.068 [info] ExtensionService#_doActivateExtension CoenraadS.bracket-pair-colorizer-2, startup: true, activationEvent: '*'
+2023-05-12 12:24:44.068 [info] ExtensionService#_doActivateExtension oderwat.indent-rainbow, startup: true, activationEvent: '*'
+2023-05-12 12:24:44.184 [error] Activating extension CoenraadS.bracket-pair-colorizer-2 failed due to an error:
+2023-05-12 12:24:44.184 [error] Error: Cannot find module '/usr/lib/code-server/lib/vscode/node_modules.asar/vscode-textmate'
+Require stack:
+- /root/.local/share/code-server/extensions/coenraads.bracket-pair-colorizer-2-0.1.4-universal/out/src/textMateLoader.js
+- /root/.local/share/code-server/extensions/coenraads.bracket-pair-colorizer-2-0.1.4-universal/out/src/settings.js
+- /root/.local/share/code-server/extensions/coenraads.bracket-pair-colorizer-2-0.1.4-universal/out/src/documentDecorationManager.js
+- /root/.local/share/code-server/extensions/coenraads.bracket-pair-colorizer-2-0.1.4-universal/out/src/extension.js
+- /usr/lib/code-server/lib/vscode/out/vs/loader.js
+- /usr/lib/code-server/lib/vscode/out/bootstrap-amd.js
+- /usr/lib/code-server/lib/vscode/out/bootstrap-fork.js
+	at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1026:15)
+	at Function.Module._load (node:internal/modules/cjs/loader:871:27)
+	at Function.m._load (/usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:124:14199)
+	at Function.g._load (/usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:119:11886)
+	at Function.I._load (/usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:119:11264)
+	at Module.require (node:internal/modules/cjs/loader:1098:19)
+	at require (node:internal/modules/cjs/helpers:108:18)
+	at TextMateLoader.getNodeModule (/root/.local/share/code-server/extensions/coenraads.bracket-pair-colorizer-2-0.1.4-universal/out/src/textMateLoader.js:106:16)
+	at TextMateLoader.loadTextMate (/root/.local/share/code-server/extensions/coenraads.bracket-pair-colorizer-2-0.1.4-universal/out/src/textMateLoader.js:109:21)
+	at new TextMateLoader (/root/.local/share/code-server/extensions/coenraads.bracket-pair-colorizer-2-0.1.4-universal/out/src/textMateLoader.js:18:27)
+	at new Settings (/root/.local/share/code-server/extensions/coenraads.bracket-pair-colorizer-2-0.1.4-universal/out/src/settings.js:10:31)
+	at new DocumentDecorationManager (/root/.local/share/code-server/extensions/coenraads.bracket-pair-colorizer-2-0.1.4-universal/out/src/documentDecorationManager.js:9:25)
+	at activate (/root/.local/share/code-server/extensions/coenraads.bracket-pair-colorizer-2-0.1.4-universal/out/src/extension.js:6:37)
+	at Function.eb (/usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:110:14676)
+	at Function.db (/usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:110:14380)
+	at /usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:110:12406
+	at async w.n (/usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:96:6646)
+	at async w.m (/usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:96:6609)
+	at async w.l (/usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:96:6066)
+2023-05-12 12:24:44.184 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2023-05-12 12:24:44.185 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-05-12 12:24:44.536 [info] Eager extensions activated
+2023-05-12 12:24:44.536 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-05-12 12:24:44.537 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-05-12 12:24:44.537 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onStartupFinished', root cause: esbenp.prettier-vscode
+2023-05-12 12:24:44.538 [info] ExtensionService#_doActivateExtension ritwickdey.LiveServer, startup: false, activationEvent: 'onStartupFinished'
+2023-05-12 12:24:44.538 [info] ExtensionService#_doActivateExtension streetsidesoftware.code-spell-checker, startup: false, activationEvent: 'onStartupFinished'
+2023-05-12 12:24:44.539 [info] ExtensionService#_doActivateExtension usernamehw.errorlens, startup: false, activationEvent: 'onStartupFinished'
+2023-05-12 12:24:44.539 [info] ExtensionService#_doActivateExtension vscode-icons-team.vscode-icons, startup: false, activationEvent: 'onStartupFinished'
+2023-05-12 12:24:45.598 [info] ExtensionService#_doActivateExtension esbenp.prettier-vscode, startup: false, activationEvent: 'onStartupFinished'
+2023-05-12 12:24:48.372 [info] Extension host terminating: received terminate message from renderer
+2023-05-12 12:24:48.384 [info] Extension host with pid 426 exiting with code 0
