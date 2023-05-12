@@ -1,8 +1,8 @@
 server {
         listen 600;
         root /sites/default;
-        index index.php index.html index.htm;
-        server_name default;
+        index index.html index.php index.htm;
+        server_name _;
         location / {
                 try_files $uri $uri/ =404;
         }
