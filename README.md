@@ -40,4 +40,4 @@ docker run -itd -p 80:80 -p 8080:8080 --name swamp swarm
  - Xcode-Theme
 
 ### You can view this on docker hub if you want
-(docker hub)[https://hub.docker.com/r/thegreatestgiant/website]
+[docker hub](https://hub.docker.com/r/thegreatestgiant/website)
