@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -y && \
     apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends tzdata nginx ssh zip unzip curl nano php-fpm && \
+    apt-get install -y --no-install-recommends ca-certificates tzdata nginx ssh zip unzip curl nano php-fpm && \
     ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && \
     dpkg-reconfigure --frontend noninteractive tzdata && \
     rm -rf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default && \
