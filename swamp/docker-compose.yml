@@ -5,9 +5,4 @@ services:
     ports:
      - 8080:8080
      - 80:80
-    volumes:
-      - ./swamp/code-server:/root/.local/share/code-server
-      - ./swamp/sites:/sites
-      - ./swamp/available:/etc/nginx/sites-available
-      - ./swamp/enabled:/etc/nginx/sites-enabled
     image: thegreatestgiant/website:swamp
