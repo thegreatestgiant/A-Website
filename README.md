@@ -14,18 +14,18 @@ docker build -t website .
 docker run -itd -p 600:600 -p 8080:8080 --name website website
 ```
 
-### Building Swamp from the Dockerfile
+### Building Swarm from the Dockerfile
 ```sh
 git clone https://github.com/thegreatestgiant/A-Website.git
-cd A-Website/swamp
+cd A-Website/swarm
 ```
 
 ```sh
-docker build -t swamp .
+docker build -t swarm .
 ```
 
 ```sh
-docker run -itd -p 80:80 -p 8080:8080 --name swamp swamp
+docker run -itd -p 80:80 -p 8080:8080 --name swamp swarm
 ```
 
 ## Extensions used
