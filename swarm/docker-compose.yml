@@ -2,7 +2,5 @@ services:
   website:
     restart: always
     container_name: swarm
-    ports:
-     - 8080:8080
-     - 80:80
+    network_mode: host
     image: thegreatestgiant/website:swarm
