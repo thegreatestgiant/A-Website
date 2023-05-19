@@ -19,8 +19,8 @@ fi
 if [ "$1" = "-i" ]; then
   echo "Usage: spoof [domain]"
   echo "Info:"
-  echo "    This just runs runs 'certbot --nginx -d'"
+  echo "    This just runs runs 'certbot --non-interactive --redirect --agree-tos --nginx -m admin@gmail.com -d'"
   exit 4
 fi
 
-certbot --nginx -d $1
+certbot --non-interactive --redirect --agree-tos --nginx -m admin@gmail.com -d $1
