@@ -25,7 +25,7 @@ docker build -t swarm .
 ```
 
 ```sh
-docker run -itd -p 80:80 -p 8080:8080 --network host --name swamp swarm
+docker run -itd --network host --name swamp swarm
 ```
 
 ## Extensions used
