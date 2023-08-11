@@ -97,7 +97,6 @@ jobs:
             $(printf '${{ env.REGISTRY_IMAGE }}@sha256:%s ' *) \
             echo 'test1' $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
             echo 'test2' $(printf '${{ env.REGISTRY_IMAGE }}@sha256:%s ' *) \
-            echo 'test3' $(printf '${{ env.REGISTRY_IMAGE }}@sha256:latest ' *)
       -
         name: Inspect image
         run: |
