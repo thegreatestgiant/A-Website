@@ -28,8 +28,18 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY_IMAGE }}
+          # generate Docker tags based on the following events/attributes
           tags: |
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha
             type=literal,pattern=latest
+
+
         # env:
         #   DOCKER_METADATA_OUTPUT_TAGS: '***/website:latest'
       -
@@ -96,7 +106,15 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY_IMAGE }}
+          # generate Docker tags based on the following events/attributes
           tags: |
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha
             type=literal,pattern=latest
         # env:
         #   DOCKER_METADATA_OUTPUT_TAGS: '***/website:latest'
