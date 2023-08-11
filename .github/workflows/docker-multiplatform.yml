@@ -95,9 +95,8 @@ jobs:
         run: |
           docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
             $(printf '${{ env.REGISTRY_IMAGE }}@sha256:%s ' *) && \
-            echo 'test2' $(printf '${{ env.REGISTRY_IMAGE }}@sha256:%s ' *) 
+            echo $DOCKER_METADATA_OUTPUT_JSON
       -
         name: Inspect image
         run: |
           docker buildx imagetools inspect ${{ env.REGISTRY_IMAGE }}:${{ steps.meta.outputs.version }} && \
-          echo meta output ${{ steps.meta.outputs.version }}
