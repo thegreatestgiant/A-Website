@@ -16,6 +16,9 @@ jobs:
       matrix:
         platform:
           - linux/amd64
+          - linux/arm/v6
+          - linux/arm/v7
+          - linux/arm64
           - linux/arm64/v8
     steps:
       -
@@ -47,7 +50,7 @@ jobs:
           context: .
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}
-          outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
+          outputs: type=image,name=${{ env.REGISTRY_IMAGE }}:latest,push-by-digest=true,name-canonical=true,push=true
       -
         name: Export digest
         run: |
@@ -94,8 +97,7 @@ jobs:
         working-directory: /tmp/digests
         run: |
           docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
-            $(printf '${{ env.REGISTRY_IMAGE }}@sha256:%s ' *) && \
-            echo $DOCKER_METADATA_OUTPUT_JSON
+            $(printf '${{ env.REGISTRY_IMAGE }}@sha256:%s ' *)
       -
         name: Inspect image
         run: |
