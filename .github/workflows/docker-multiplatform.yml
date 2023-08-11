@@ -29,6 +29,8 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY_IMAGE }}
+        env:
+          DOCKER_METADATA_OUTPUT_TAGS: '***/website:latest'
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
