@@ -116,7 +116,7 @@ jobs:
           # docker push ${REGISTRY_IMAGE}:latest
           # # Create and push the manifest list for all tags
           docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
-            -t ${REGISTRY_IMAGE}:latest \
+            # -t ${REGISTRY_IMAGE}:latest \
             $(printf '${{ env.REGISTRY_IMAGE }}@sha256:%s ' *)
       -
         name: Inspect image
