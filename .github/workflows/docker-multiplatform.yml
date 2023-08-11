@@ -2,8 +2,9 @@ name: Docker MultiPlatform
 
 on:
   push:
-    branches:
-      - "main"
+    paths-ignore:
+      - 'swarm/**'
+      # - '.github/**'
 
 env:
   REGISTRY_IMAGE: thegreatestgiant/website
@@ -48,7 +49,14 @@ jobs:
           context: .
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}
-          outputs: type=image,name=${{ env.REGISTRY_IMAGE }}:latest,push-by-digest=true,name-canonical=true,push=true
+          outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
+      -
+        name: Tag image as latest
+        run: docker tag ${REGISTRY_IMAGE}:main ${REGISTRY_IMAGE}:latest
+      -
+        name: Push latest tag
+        run: docker push ${REGISTRY_IMAGE}:latest
+        
       -
         name: Export digest
         run: |
