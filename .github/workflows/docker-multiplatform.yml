@@ -28,7 +28,6 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY_IMAGE }}
-          # flavor: latest=true
           tags: type=raw,latest
       -
         name: Set up QEMU
@@ -49,9 +48,6 @@ jobs:
         with:
           context: .
           platforms: ${{ matrix.platform }}
-          # tags: |
-          #   ${{ steps.meta.outputs.tags }}
-          #   thegreatestgiant/website:latest
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
       -
@@ -89,7 +85,6 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY_IMAGE }}
-          # flavor: latest=true
           tags: type=raw,latest
       -
         name: Login to Docker Hub
