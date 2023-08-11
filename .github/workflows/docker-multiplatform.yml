@@ -95,11 +95,11 @@ jobs:
         run: |
           docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
             $(printf '${{ env.REGISTRY_IMAGE }}@sha256:%s ' *) \
-            echo $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
-            echo $(printf '${{ env.REGISTRY_IMAGE }}@sha256:%s ' *)
-            echo $(printf '${{ env.REGISTRY_IMAGE }}@sha256:latest ' *)
+            echo 'test1' $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
+            echo 'test2' $(printf '${{ env.REGISTRY_IMAGE }}@sha256:%s ' *) \
+            echo 'test3' $(printf '${{ env.REGISTRY_IMAGE }}@sha256:latest ' *)
       -
         name: Inspect image
         run: |
           docker buildx imagetools inspect ${{ env.REGISTRY_IMAGE }}:${{ steps.meta.outputs.version }} \
-          echo ${{ steps.meta.outputs.version }}
+          echo meta output ${{ steps.meta.outputs.version }}
