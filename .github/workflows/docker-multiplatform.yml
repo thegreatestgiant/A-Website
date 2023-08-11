@@ -50,12 +50,12 @@ jobs:
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
-      -
-        name: Tag image as latest
-        run: docker tag ${REGISTRY_IMAGE}:main ${REGISTRY_IMAGE}:latest
-      -
-        name: Push latest tag
-        run: docker push ${REGISTRY_IMAGE}:latest
+      # -
+      #   name: Tag image as latest
+      #   run: docker tag ${REGISTRY_IMAGE}:main ${REGISTRY_IMAGE}:latest
+      # -
+      #   name: Push latest tag
+      #   run: docker push ${REGISTRY_IMAGE}:latest
         
       -
         name: Export digest
