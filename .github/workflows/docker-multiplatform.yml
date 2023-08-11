@@ -105,12 +105,13 @@ jobs:
         name: Create manifest list and push
         working-directory: /tmp/digests
         run: |
-          # Tag the image as "latest"
-          docker tag ${REGISTRY_IMAGE}:${{ steps.meta.outputs.version }} ${REGISTRY_IMAGE}:latest
-          # Push the image with the "latest" tag
-          docker push ${REGISTRY_IMAGE}:latest
-          # Create and push the manifest list for all tags
+          # # Tag the image as "latest"
+          # docker tag ${REGISTRY_IMAGE}:${{ steps.meta.outputs.version }} ${REGISTRY_IMAGE}:latest
+          # # Push the image with the "latest" tag
+          # docker push ${REGISTRY_IMAGE}:latest
+          # # Create and push the manifest list for all tags
           docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
+            -t ${REGISTRY_IMAGE}:latest \
             $(printf '${{ env.REGISTRY_IMAGE }}@sha256:%s ' *)
       -
         name: Inspect image
