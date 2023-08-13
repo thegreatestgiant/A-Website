@@ -1,6 +1,6 @@
 services:
   website:
     restart: always
-    container_name: swarm
+    container_name: Swarm
     network_mode: host
     image: thegreatestgiant/website:swarm
