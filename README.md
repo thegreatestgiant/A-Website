@@ -1,5 +1,39 @@
 # A-Website
 
+## Deploying
+
+### Regular Website
+```sh
+services:
+  website:
+    restart: always
+    container_name: a-website
+    ports:
+     - 8080:8080
+     - 600:600
+    volumes:
+      - web-code:/root/.local/share/code-server
+      - web-sites:/sites
+      - web-st-av:/etc/nginx/sites-available
+      - web-st-en:/etc/nginx/sites-enabled
+    image: thegreatestgiant/website
+volumes:
+  web-code:
+  web-sites:
+  web-st-av:
+  web-st-en:
+```
+
+### Swarm website
+```sh
+services:
+  website:
+    restart: always
+    container_name: swarm
+    network_mode: host
+    image: thegreatestgiant/website:swarm
+```
+
 ## Building from the Dockerfile
 ```sh
 git clone https://github.com/thegreatestgiant/A-Website.git
@@ -40,4 +74,4 @@ docker run -itd --network host --name swamp swarm
  - Xcode-Theme
 
 ### You can view this on docker hub if you want
-[docker hub](https://hub.docker.com/r/thegreatestgiant/website)
+[Docker Hub](https://hub.docker.com/r/thegreatestgiant/website)
