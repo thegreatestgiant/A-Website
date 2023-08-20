@@ -1,5 +1,7 @@
 FROM ubuntu:22.04
+
 COPY spoof /usr/bin
+
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends ca-certificates nginx curl nano certbot python3-certbot-nginx tzdata jq && \
     ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && \
