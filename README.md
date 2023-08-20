@@ -68,10 +68,12 @@ docker run -itd --network host --name swamp swarm
  - Docker
  - Error Lens
  - Indent-rainbow
- - live-server
+ - Live Server
+ - Live Server (Five Server) 
  - Prettier
  - Vscode-icons
  - Xcode-Theme
+
 
 ### You can view this on docker hub if you want
 [Docker Hub](https://hub.docker.com/r/thegreatestgiant/website)

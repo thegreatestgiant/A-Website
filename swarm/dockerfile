@@ -2,13 +2,15 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 COPY spoof /usr/bin
 RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends ca-certificates nginx curl nano certbot python3-certbot-nginx tzdata && \
+    apt-get install -y --no-install-recommends ca-certificates nginx curl nano certbot python3-certbot-nginx tzdata jq && \
     ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && \
     ln -s /var/www/html /sites && \
     ln -s /etc/nginx /settings && \
+    VER=$(curl -sX GET "https://api.github.com/repos/coder/code-server/releases/latest" \
+    | jq -r .tag_name | sed 's/v//'); \
     ARCH=$(if [ $(uname -m) = "aarch64" ]; then echo "arm64"; elif [ $(uname -m) = "x86_64" ]; then echo "amd64"; else echo $(uname -m); fi) && \
-    curl -fOL https://github.com/coder/code-server/releases/download/v4.12.0/code-server_4.12.0_${ARCH}.deb && \
-    dpkg -i code-server_4.12.0*.deb && \
+    curl -fOL https://github.com/coder/code-server/releases/download/v${VER}/code-server_${VER}_${ARCH}.deb && \
+    dpkg -i code-server_${VER}*.deb && \
     rm code-server* && \
     chmod +x /usr/bin/spoof
 ADD code-server.tar.gz /root/.local/share    
