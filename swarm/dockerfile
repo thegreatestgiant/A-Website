@@ -13,6 +13,7 @@ RUN apt-get update -y && \
     dpkg -i code-server_${VER}*.deb && \
     rm code-server* && \
     chmod +x /usr/bin/spoof
+    
 ADD code-server.tar.gz /root/.local/share    
 
 CMD ["sh", "-c", "nginx -g 'daemon off;' & code-server --auth none --host 0.0.0.0"]
