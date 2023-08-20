@@ -75,3 +75,9 @@ docker run -itd --network host --name swamp swarm
 
 ### You can view this on docker hub if you want
 [Docker Hub](https://hub.docker.com/r/thegreatestgiant/website)
+
+
+# Updating
+```
+git clone https://github.com/thegreatestgiant/docker-calibre.git
+```
