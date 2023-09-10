@@ -4,6 +4,7 @@
 
 ### Regular Website
 ```sh
+version '3'
 services:
   website:
     restart: always
@@ -26,6 +27,7 @@ volumes:
 
 ### Swarm website
 ```sh
+version '3'
 services:
   website:
     restart: always
