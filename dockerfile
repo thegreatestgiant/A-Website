@@ -28,9 +28,9 @@ RUN VER=$(curl -sX GET "https://api.github.com/repos/coder/code-server/releases/
     rm code-server_${VER}_${ARCH}.deb
 
 # Copy custom scripts to /usr/bin
-COPY --chmod=+x spoof /usr/bin
-COPY --chmod=+x port /usr/bin/port
-COPY --chmod=+x new-site /usr/bin/new-site
+COPY --chmod=755 spoof /usr/bin
+COPY --chmod=755 port /usr/bin/port
+COPY --chmod=755 new-site /usr/bin/new-site
 
 # Copy Nginx default site configuration
 COPY default /etc/nginx/sites-available/default
