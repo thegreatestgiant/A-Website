@@ -1,5 +1,5 @@
 server {
-        listen 600 default_server;
+        listen 80 default_server;
         root /sites/default;
         index index.html index.php index.htm;
         server_name _;
