@@ -1,4 +1,4 @@
-name: Docker Automation - Website
+name: Build Dockerfile
 
 on:
   push:

@@ -46,6 +46,7 @@ RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default &&
 # Add volumes
 VOLUME /settings /sites /code-settings
 
+# Expose the default ports
 EXPOSE 80 8080
 
 # Start PHP-FPM, Nginx, and Code-Server
