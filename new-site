@@ -4,6 +4,7 @@ if [ -z "$1" ] || [ "$1" = "-h" ]; then
   echo "Usage: new-site [domain]"
   echo "Options:"
   echo "  -h    Show this help message"
+  echo "  -p [domain]    Sets up a reverse proxy on the domain"
   exit 2
 fi
 
@@ -15,21 +16,28 @@ if ! touch "$config_file"; then
   exit 3
 fi
 
-cat << EOF > "$config_file"
-server {
-        listen $PORT;
-        root /sites/$1;
-        index index.php index.html index.htm;
-        server_name $1;
-        location / {
-                try_files \$uri \$uri/ =404;
-        }
-        location ~ \.php$ {
-                include snippets/fastcgi-php.conf;
-                fastcgi_pass unix:/run/php/php8.1-fpm.sock;
-        }
-}
+if "$1" != "-p"; then
+  cat << EOF > "$config_file"
+  server {
+          listen $PORT;
+          root /sites/$1;
+          index index.php index.html index.htm;
+          server_name $1;
+          location / {
+                  try_files \$uri \$uri/ =404;
+          }
+          location ~ \.php$ {
+                  include snippets/fastcgi-php.conf;
+                  fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+          }
+  }
 EOF
+fi
+else
+  cat << EOF > "$config_file"
+  # put in reverse proxy stuffs here
+EOF
+fi
 
 if ! ln -s "$config_file" /etc/nginx/sites-enabled; then
   echo "Failed to enable config file"
