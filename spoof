@@ -1,19 +1,11 @@
 #!/bin/bash
 
-if [ -z "$1" ]; then
+if [ -z "$1" ] || [ "$1" = "-h" ]; then
   echo "Usage: spoof [domain]"
   echo "Options:"
   echo "  -h    Show this help message"
   echo "  -i    Shows information about spoof"
   exit 2
-fi
-
-if [ "$1" = "-h" ]; then
-  echo "Usage: spoof [domain]"
-  echo "Options:"
-  echo "  -h    Show this help message"
-  echo "  -i    Shows information about spoof"
-  exit 3
 fi
 
 if [ "$1" = "-i" ]; then
