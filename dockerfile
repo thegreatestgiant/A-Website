@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM debian:slim
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends ca-certificates tzdata nginx ssh zip unzip curl nano php-fpm jq && \
