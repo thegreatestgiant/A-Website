@@ -46,5 +46,7 @@ RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default &&
 # Add volumes
 VOLUME /settings /sites /code-settings
 
+EXPOSE 80 8080
+
 # Start PHP-FPM, Nginx, and Code-Server
 CMD ["sh", "-c", "service php8.1-fpm start; nginx -g 'daemon off;' & code-server --auth none --host 0.0.0.0"]
