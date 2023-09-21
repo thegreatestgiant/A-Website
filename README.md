@@ -1,5 +1,11 @@
 # A-Website
 
+## Use
+ - To deploy code-server with the extensions listed below
+ - To basically be a node where you can deploy many different sites from the same place, you can create a new site on the next port using the `new-site` command
+    - (supports php)
+ - On the swarm version, it's meant to be used for spoofing so it can only have one site running on port 80 and when you run `spoof` you can add as many domains as you want to you spoofable website
+
 ## Deploying
 
 ### Regular Website
