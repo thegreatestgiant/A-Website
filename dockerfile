@@ -1,5 +1,8 @@
 FROM debian:11-slim
 
+# Set DEBIAN_FRONTEND to noninteractive to suppress debconf messages
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update -y && apt-get install -y \
     ca-certificates \
     nginx \
