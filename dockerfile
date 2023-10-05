@@ -1,4 +1,4 @@
-FROM debian:11-slim
+FROM debian:stable-slim
 
 # Set DEBIAN_FRONTEND to noninteractive to suppress debconf messages
 ENV DEBIAN_FRONTEND=noninteractive
@@ -17,12 +17,13 @@ RUN apt-get update -y && apt-get install -y \
     python3-certbot-nginx && \
     ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && \
     ln -s /var/www/html /sites
+
 # Configure Nginx
 RUN rm -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default && \
     mkdir -p /sites/default && touch /sites/default/index.html
 
 RUN VER=$(curl -sX GET "https://api.github.com/repos/coder/code-server/releases/latest" | jq -r .tag_name | sed 's/v//') && \
-    ARCH=$(if [ $(uname -m) = "aarch64" ]; then echo "arm64"; elif [ $(uname -m) = "x86_64" ]; then echo "amd64"; else echo $(uname -m); fi) && \
+    ARCH=$(dpkg --print-architecture) && \
     curl -fOL https://github.com/coder/code-server/releases/download/v${VER}/code-server_${VER}_${ARCH}.deb && \
     dpkg -i code-server_${VER}_${ARCH}.deb && \
     rm code-server_${VER}_${ARCH}.deb
