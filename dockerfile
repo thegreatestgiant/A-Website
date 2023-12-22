@@ -19,7 +19,7 @@ RUN apt-get update -y && apt-get install -y \
     ln -s /var/www/html /sites
 
 # Configure Nginx
-RUN rm -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default && \
+RUN rm -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default /var/www/html/index* && \
     mkdir -p /sites/default && touch /sites/default/index.html
 
 RUN VER=$(curl -sX GET "https://api.github.com/repos/coder/code-server/releases/latest" | jq -r .tag_name | sed 's/v//') && \
